@@ -33,7 +33,7 @@ class Bot:
             if element in ['play', 'music', 'sing']:
                 _music_player_check += priority
             if element in ['password', 'account']:
-                _password_manager_check = priority
+                _password_manager_check += priority
 
             # less priority
             if element in self._greeting:
