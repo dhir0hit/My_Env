@@ -1,0 +1,20 @@
+{
+  "commands":
+  {
+    "questions" : {
+      "greeting": ["hello", "there", "good", "morning", "good", "evening", "hi", "bot", "how", "you", "doing"],
+      "notes": ["create", "a", "note", "a", "new", "note", "please", "create", "me", "a", "note", "save", "a", "note", "save", "this"],
+      "reminder": ["create", "a", "reminder", "remind", "me", "on", "reminder", "for"],
+      "musicPlayer": ["play", "some", "music", "for", "me", "play", "some", "music"],
+      "passwordManager": ["create", "a", "new", "password", "new", "account", "create", "a", "new", "account"]
+    },
+    "answers": {
+      "greeting": ["Hello there", "Hi", "How can i help you?"],
+      "notes": ["Note Created"],
+      "reminder": ["A reminder created"],
+      "musicPlayer": ["playing music"],
+      "passwordManager": ["Added new account"],
+      "error": ["unable to fulfill request", "what's that?", "404", "error can not do that"]
+    }
+  }
+}
