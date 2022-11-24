@@ -3,7 +3,12 @@ import subprocess
 
 
 def main():
-    subprocess.run(['pip', 'install', 'PySide6'])
+    process = subprocess.run(['pip', 'install', 'PySide6'])
+    print()
+    print('[+] Installation Completed')
+    print('[+] You are ready to Roll')
+    print('[+] Run main.py')
+    print('[+] Closing...')
 
 
 if __name__ == '__main__':

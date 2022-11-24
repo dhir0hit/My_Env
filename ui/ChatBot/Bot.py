@@ -7,7 +7,7 @@ class Bot:
         self.__fetch_data__()
         print(user)
 
-    def command(self, _command):
+    def command(self,                                                           _command):
         _command = _command.lower().split()
         return random.choice(self.answers[self.__check_command__(_command)])
 
