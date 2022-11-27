@@ -95,4 +95,4 @@ city = city + " weather"
 weather(city)
 print("Have a Nice Day:)")
 
-# This code is contributed by adityatri
+
