@@ -8,18 +8,12 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-                            QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt, Slot)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-                           QFont, QFontDatabase, QGradient, QIcon,
-                           QImage, QKeySequence, QLinearGradient, QPainter,
-                           QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
-                               QVBoxLayout, QHBoxLayout, QLineEdit, QWidget, QLCDNumber, QFrame)
-import image_rc
+from PySide6.QtCore import (QMetaObject, QSize, Qt)
+from PySide6.QtGui import (QFont, QIcon)
+from PySide6.QtWidgets import (QLabel, QPushButton, QSizePolicy,
+                               QVBoxLayout, QHBoxLayout, QLineEdit, QWidget, QLCDNumber)
 
-from utils.PasswordManager import PasswordManager
+from src.PasswordManager import PasswordManager
 
 
 class Ui_password_manager_container(object):
@@ -27,7 +21,6 @@ class Ui_password_manager_container(object):
         self.manager_name = QLabel()
         self.lineEdit = QLineEdit()
         self.manager_name = QLabel()
-
 
     def setupUi(self, parent):
         password_manager = PasswordManager()

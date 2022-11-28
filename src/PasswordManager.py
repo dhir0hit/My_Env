@@ -5,6 +5,7 @@ class PasswordManager:
         self.AccessPass = 0
         self.TotalAccounts = 69
         self.FavoriteAccounts = 0
+        self.Unlocked = True
 
     def _load_data_(self):
         # open database and load data

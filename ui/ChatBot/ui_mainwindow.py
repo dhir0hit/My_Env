@@ -15,53 +15,26 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLineEdit, QMainWindow,
+    QPushButton, QScrollArea, QSizePolicy, QVBoxLayout,
+    QWidget)
 import image_rc
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
+    def __init__(self):
+        self.send = None
+        self.chatbot_container = None
+
+    def setupUi(self, parent):
+        self.window = QWidget(parent)
+        self.window.setObjectName(u"window")
+        self.window.resize(800, 600)
+        self.chatbot_container = QWidget(self.window)
+        self.chatbot_container.setObjectName(u"chatbot_container")
+        self.chatbot_container.setStyleSheet(u"background-color: rgb(51, 53, 51);")
+        self.verticalLayout = QVBoxLayout(self.chatbot_container)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.top_bar = QWidget(self.centralwidget)
-        self.top_bar.setObjectName(u"top_bar")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.top_bar.sizePolicy().hasHeightForWidth())
-        self.top_bar.setSizePolicy(sizePolicy)
-        self.horizontalLayout = QHBoxLayout(self.top_bar)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(20, 5, 20, 5)
-        self.app_name = QLabel(self.top_bar)
-        self.app_name.setObjectName(u"app_name")
-        font = QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        self.app_name.setFont(font)
-        self.app_name.setStyleSheet(u"color: rgb(245, 203, 92);")
-
-        self.horizontalLayout.addWidget(self.app_name)
-
-        self.current_app = QLabel(self.top_bar)
-        self.current_app.setObjectName(u"current_app")
-        font1 = QFont()
-        font1.setPointSize(16)
-        self.current_app.setFont(font1)
-
-        self.horizontalLayout.addWidget(self.current_app, 0, Qt.AlignRight)
-
-
-        self.verticalLayout.addWidget(self.top_bar)
-
-        self.main_body = QWidget(self.centralwidget)
+        self.main_body = QWidget(self.chatbot_container)
         self.main_body.setObjectName(u"main_body")
         self.main_body.setStyleSheet(u"background-color: rgb(36, 36, 35);")
         self.verticalLayout_2 = QVBoxLayout(self.main_body)
@@ -70,12 +43,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(6, 6, 6, 6)
         self.scrollArea = QScrollArea(self.main_body)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setStyleSheet(u"")
+        self.scrollArea.setStyleSheet(u"border: \"none\";")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 772, 482))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 776, 532))
         self.scrollAreaWidgetContents.setLayoutDirection(Qt.LeftToRight)
         self.scrollAreaWidgetContents.setStyleSheet(u"")
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
@@ -86,22 +59,6 @@ class Ui_MainWindow(object):
         self.chat.setObjectName(u"chat")
         self.verticalLayout_4 = QVBoxLayout(self.chat)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        # self.chat_bot_1 = QLabel(self.chat)
-        # self.chat_bot_1.setObjectName(u"chat_bot_1")
-        # self.chat_bot_1.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        # self.chat_bot_1.setWordWrap(True)
-        # self.chat_bot_1.setMargin(6)
-        #
-        # self.verticalLayout_4.addWidget(self.chat_bot_1, 0, Qt.AlignLeft)
-        #
-        # self.user_1 = QLabel(self.chat)
-        # self.user_1.setObjectName(u"user_1")
-        # self.user_1.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        # self.user_1.setWordWrap(True)
-        # self.user_1.setMargin(6)
-        #
-        # self.verticalLayout_4.addWidget(self.user_1, 0, Qt.AlignRight)
-
 
         self.verticalLayout_3.addWidget(self.chat, 0, Qt.AlignBottom)
 
@@ -111,9 +68,10 @@ class Ui_MainWindow(object):
 
         self.input_bar = QWidget(self.main_body)
         self.input_bar.setObjectName(u"input_bar")
+        self.input_bar.setStyleSheet(u"background-color: rgb(51, 53, 51);")
         self.horizontalLayout_2 = QHBoxLayout(self.input_bar)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(-1, 1, -1, -1)
+        self.horizontalLayout_2.setContentsMargins(-1, 1, -1, 1)
         self.lineEdit = QLineEdit(self.input_bar)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setEnabled(True)
@@ -121,7 +79,8 @@ class Ui_MainWindow(object):
         self.lineEdit.setSizeIncrement(QSize(0, 0))
         self.lineEdit.setAutoFillBackground(False)
         self.lineEdit.setStyleSheet(u"color: rgb(245, 203, 92);\n"
-"background-color: rgb(51, 53, 51);")
+"background-color: rgb(51, 53, 51);\n"
+"border: \"none\";")
 
         self.horizontalLayout_2.addWidget(self.lineEdit)
 
@@ -129,7 +88,9 @@ class Ui_MainWindow(object):
         self.send.setObjectName(u"send")
         self.send.setMinimumSize(QSize(0, 36))
         self.send.setStyleSheet(u"color: rgb(245, 203, 92);\n"
-"background-color: rgb(51, 53, 51);")
+"background-color: rgb(51, 53, 51);\n"
+"padding: 5;\n"
+"border: none;")
         icon = QIcon()
         icon.addFile(u":/resources/subdirectory_arrow_left_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.send.setIcon(icon)
@@ -143,20 +104,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.main_body)
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        # parent.setCentralWidget(self.chatbot_container)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(self.window)
 
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(self.window)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.app_name.setText(QCoreApplication.translate("MainWindow", u"My Env", None))
-        self.current_app.setText(QCoreApplication.translate("MainWindow", u"ChatBot", None))
+    def retranslateUi(self, parent):
+        self.window.setWindowTitle(QCoreApplication.translate("parent", u"parent", None))
         self.lineEdit.setInputMask("")
         self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type Here...", None))
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("parent", u"Type Here...", None))
         self.send.setText("")
     # retranslateUi
 
