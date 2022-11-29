@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(932, 658)
+        MainWindow.resize(1000, 658)
         MainWindow.setStyleSheet(u"background-color: rgb(36, 36, 35);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -319,7 +319,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"My Env", None))
         self.user_initials.setText(QCoreApplication.translate("MainWindow", u"UN", None))
         self.user_name.setText(QCoreApplication.translate("MainWindow", u"User_Name", None))
         self.user_mail.setText(QCoreApplication.translate("MainWindow", u"mail@mail.com", None))

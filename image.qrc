@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="resources">
+    <file>visibility_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>content_copy_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>cloud_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>smart_toy_.svg</file>
     <file>music_note_FILL0_wght400_GRAD0_opsz48.svg</file>

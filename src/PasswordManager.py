@@ -5,7 +5,7 @@ class PasswordManager:
         self.AccessPass = 0
         self.TotalAccounts = 69
         self.FavoriteAccounts = 0
-        self.Unlocked = True
+        self.Unlocked = False
 
     def _load_data_(self):
         # open database and load data
@@ -13,3 +13,5 @@ class PasswordManager:
 
     def unlock_manager(self, password):
         return password == "1234"
+
+
