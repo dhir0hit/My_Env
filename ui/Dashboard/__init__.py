@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
         # Setting number of total and favorite accounts
         # -
         self.pass_manager.total_accounts.display(self.password_manager.TotalAccounts)
-        self.pass_manager.favorite_accounts.display(self.password_manager.FavoriteAccounts)
+        self.pass_manager.favorite_accounts.display(self.password_manager.TotalAccounts)
 
         # -
         # opening password Manager

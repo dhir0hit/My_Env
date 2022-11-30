@@ -17,7 +17,7 @@ import image_rc
 
 class MainWindow(QMainWindow):
     def __init__(self, window):
-        super(MainWindow, self).__init__()
+        super(MainWindow, self).__init__(window)
         print("[+] Opened Password Manager")
 
         self.upper_class = window
@@ -39,9 +39,10 @@ class MainWindow(QMainWindow):
         self.password_manager_dashboard.label.setText("Total Account")
         # self.password_manager_dashboard.FavoriteAccounts.setText()
         # self.password_manager_dashboard.TotalAccounts.setText()
-        # self.upper_class.password_manager()s
+        # self.upper_class.password_manager()
 
-        self.password_manager_dashboard.pushButton_2.clicked.connect(lambda: main_window.password_manager_create(main_window))
+        self.password_manager_dashboard.pushButton_2.clicked.connect(
+            lambda: main_window.password_manager_create())
 
         print(f"Total {accounts_data.TotalAccounts} ")
         for account in accounts_data.AllAccounts:
@@ -101,8 +102,8 @@ class MainWindow(QMainWindow):
         horizontalLayout.addWidget(verticalWidget)
 
         QMetaObject.connectSlotsByName(account_container)
-        label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><img src=\":/resources/deer_logo_template_dark_flat_handdrawn_design_6854205.jpg\" wdith=\"100\" height=\"100\"/></p></body></html>", None))
-        label_3.setText(QCoreApplication.translate("Form", account.Platform(), None))
-        label_2.setText(QCoreApplication.translate("Form", account.Username(), None))
+        label.setText(QCoreApplication.translate("Form" + str(account.Id()), u"<html><head/><body><p><img src=\":/resources/deer_logo_template_dark_flat_handdrawn_design_6854205.jpg\" wdith=\"100\" height=\"100\"/></p></body></html>", None))
+        label_3.setText(QCoreApplication.translate(f"Form" + str(account.Id()), account.Platform(), None))
+        label_2.setText(QCoreApplication.translate("Form" + str(account.Id()), account.Username(), None))
 
         return account_container

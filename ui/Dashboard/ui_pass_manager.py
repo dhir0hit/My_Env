@@ -25,9 +25,10 @@ class Ui_password_manager_container(object):
     def setupUi(self, parent):
         password_manager = PasswordManager()
         self.parent = parent
+        self.__locked__(parent)
 
         # self.__unlocking__(self.parent)
-        if password_manager.AccessPass:
+        if password_manager.Unlocked:
             self.__unlocking__(self.parent)
         else:
             self.__locked__(self.parent)
@@ -130,12 +131,12 @@ class Ui_password_manager_container(object):
         self.unlock_button.setText("Unlock...")
         self.unlock_button.setObjectName(u"unlock_button_3")
         self.unlock_button.setStyleSheet(u"border: none;\n"
-"padding-top: 5;\n"
-"padding-right: 10;\n"
-"padding-bottom:  5;\n"
-"padding-left: 10;\n"
-"background-color: rgb(245, 203, 92);\n"
-"color: rgb(51, 53, 51);")
+                                         "padding-top: 5;\n"
+                                         "padding-right: 10;\n"
+                                         "padding-bottom:  5;\n"
+                                         "padding-left: 10;\n"
+                                         "background-color: rgb(245, 203, 92);\n"
+                                         "color: rgb(51, 53, 51);")
 
         self.verticalLayout_21.addWidget(self.unlock_button)
 
