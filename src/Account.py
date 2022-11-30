@@ -79,6 +79,13 @@ class Account:
         """
         return self._decrypt_(self._password_)
 
+    def encrpytedPassword(self):
+        """
+        encrpted password for database only
+        :return: password in bytes
+        """
+        return self._password_
+
     def Platform(self):
         """
         :return: Platform in String

@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow_5()
         self.ui.setupUi(self)
         self.ui.pushButton.clicked.connect(self.__continue__)
-        self.ui.radioButton_4.click()
+        self.ui.nav_indicator_4.click()
 
     @Slot()
     def __continue__(self):

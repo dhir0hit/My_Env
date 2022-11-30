@@ -3,12 +3,13 @@ from ui.Dashboard import MainWindow as Dashboard
 from ui.ChatBot import MainWindow as ChatBot
 from ui.PasswordManager import MainWindow as PasswordManager
 from ui.PasswordManager.Detail import MainWindow as PasswordManagerDetail
+from ui.PasswordManager.Create import MainWindow as PasswordManagerCreate
 
 from ui.ui_dashboard import Ui_MainWindow
 
 from PySide6.QtWidgets import (QMainWindow,
                                QWidget)
-
+from src.PasswordManager import PasswordManager as PasswordManagerData
 
 #
 # Main window
@@ -20,13 +21,16 @@ class MainWindow(QMainWindow):
         # creating new instance of main window ui
         self.Window = Ui_MainWindow()
         self.Window.setupUi(self)  # setting up ui
+        # Creating instance of password manager
+        self.pass_manager = PasswordManagerData()
 
         self.dashboard()  # calling dashboard method to load ui
 
         # navigation controls
         self.Window.nav_dashboard.clicked.connect(self.dashboard)
         self.Window.nav_chat_bot.clicked.connect(self.chat_bot)
-        self.Window.nav_pass_manager.clicked.connect(self.password_manager)
+        self.Window.nav_pass_manager.clicked.connect(self.password_manager_create)
+
 
     def dashboard(self):
         """
@@ -38,7 +42,7 @@ class MainWindow(QMainWindow):
         # to remove any components in app
         self._remove_old_elements_()
         # getting dashboard ui instance
-        app = Dashboard(self)
+        app = Dashboard(self, self.pass_manager)
         app.run()  # running dashboard
 
         # connecting the buttons
@@ -112,7 +116,19 @@ class MainWindow(QMainWindow):
         password manager create
         """
         print("[+] Opening Password Manager Create...")
-        
+        print("[+] Opening Password Manager Details...")
+        # calling remove old elements
+        # to remove any components in app
+        self._remove_old_elements_()
+        # getting password manager detail ui instance
+        app = PasswordManagerCreate(self)
+        app.run()
+
+        # changing navigation list color
+        self._change_all_background_()
+        self.Window.nav_pass_manager.setStyleSheet("border: none; "
+                                                   "padding: 3; "
+                                                   "background-color: rgb(36, 36, 35);")
 
     def _remove_old_elements_(self):
         """

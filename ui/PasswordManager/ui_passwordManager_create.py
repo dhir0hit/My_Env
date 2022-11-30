@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 
-class Ui_password_manager_container(object):
+class Ui_password_manager_create(object):
     def setupUi(self, parent):
         self.account_create_container = QWidget(parent)
         if not self.account_create_container.objectName():
@@ -96,7 +96,7 @@ class Ui_password_manager_container(object):
         self.platform_container.setMaximumSize(QSize(600, 16777215))
         self.verticalLayout_4 = QVBoxLayout(self.platform_container)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(6, -1, 40, -1)
+        self.verticalLayout_4.setContentsMargins(6, -1, -1, -1)
         self.platform_label = QLabel(self.platform_container)
         self.platform_label.setObjectName(u"platform_label")
         self.platform_label.setFont(font)
@@ -176,5 +176,3 @@ class Ui_password_manager_container(object):
         self.platform_label.setText(QCoreApplication.translate("account_create_container", u"Platform", None))
         self.website_label.setText(QCoreApplication.translate("account_create_container", u"Website", None))
         self.Create_Button.setText(QCoreApplication.translate("account_create_container", u"Create", None))
-    # retranslateUi
-

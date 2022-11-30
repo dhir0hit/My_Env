@@ -3,19 +3,20 @@ from PySide6.QtWidgets import (QMainWindow)
 
 from ui.Dashboard.ui_container import Ui_Container
 from ui.Dashboard.ui_pass_manager import Ui_password_manager_container
-from src.PasswordManager import PasswordManager
+
 
 # Main window of Landing Page
 # TODO: if user is not sign in show main page otherwise direct user to dashboard
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, window):
+    def __init__(self, window, password_manager):
         super(MainWindow, self).__init__()
         print("[+] Opened Dashboard ... ")
 
         # getting mainWindow UI
         self.Window = window.Window
+        self.password_manager = password_manager
 
     def run(self):
         """
@@ -39,10 +40,9 @@ class MainWindow(QMainWindow):
         self.pass_manager.unlock_button.clicked.connect(lambda: self.try_unlock)
         self.pass_manager.unlock_button.clicked.connect(self.try_unlock)
 
-        # Creating instance of password manager
-        pass_manager = PasswordManager()
         # if pass manager is unlocked show unlocked version
-        if pass_manager.Unlocked:
+        print(self.password_manager.Unlocked)
+        if self.password_manager.Unlocked:
             self.unlocked()
 
         # TODO: add functionality
@@ -75,8 +75,6 @@ class MainWindow(QMainWindow):
         """
         # getting user input password
         password = self.pass_manager.lineEdit.text()
-        # creating new instance of password manager
-        password_manager = PasswordManager()
 
         if not password != "":
             # if Field is empty
@@ -86,14 +84,15 @@ class MainWindow(QMainWindow):
             self.pass_manager.manager_name.setText("Empty Field!")
             self.pass_manager.manager_name.setStyleSheet("color: red;")  # changing color
 
-        elif password_manager.unlock_manager(password):
+        elif self.password_manager.unlock_manager(password):
             # opening function if password correct
             self.unlocked()
             print("[+] Unlocked...")
             #
             # Setting password manager to be unlocked
             #
-            password_manager.Unlocked = True
+            self.password_manager.Unlocked = True
+            print(self.password_manager.Unlocked)
 
         else:
             # if password is wrong
@@ -107,8 +106,6 @@ class MainWindow(QMainWindow):
         """
         Method show unlocked version of password manager
         """
-        # creating new instance of password manager
-        password_manager = PasswordManager()
 
         # removing password manager container
         self.Window.verticalLayout_7.removeWidget(self.pass_manager.password_manager_container)
@@ -121,8 +118,8 @@ class MainWindow(QMainWindow):
         # -
         # Setting number of total and favorite accounts
         # -
-        self.pass_manager.total_accounts.display(password_manager.TotalAccounts)
-        self.pass_manager.favorite_accounts.display(password_manager.FavoriteAccounts)
+        self.pass_manager.total_accounts.display(self.password_manager.TotalAccounts)
+        self.pass_manager.favorite_accounts.display(self.password_manager.FavoriteAccounts)
 
         # -
         # opening password Manager

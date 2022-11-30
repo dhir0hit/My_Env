@@ -44,7 +44,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 795, 449))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -1476, 774, 1925))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(-1, 0, -1, -1)
@@ -82,33 +82,33 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QHBoxLayout(self.horizontalWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(-1, 1, -1, -1)
-        self.radioButton_3 = QRadioButton(self.horizontalWidget)
-        self.radioButton_3.setObjectName(u"radioButton_3")
-        sizePolicy1.setHeightForWidth(self.radioButton_3.sizePolicy().hasHeightForWidth())
-        self.radioButton_3.setSizePolicy(sizePolicy1)
+        self.nav_indicator_1 = QRadioButton(self.horizontalWidget)
+        self.nav_indicator_1.setObjectName(u"nav_indicator_1")
+        sizePolicy1.setHeightForWidth(self.nav_indicator_1.sizePolicy().hasHeightForWidth())
+        self.nav_indicator_1.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.radioButton_3)
+        self.horizontalLayout.addWidget(self.nav_indicator_1)
 
-        self.radioButton_4 = QRadioButton(self.horizontalWidget)
-        self.radioButton_4.setObjectName(u"radioButton_4")
-        sizePolicy1.setHeightForWidth(self.radioButton_4.sizePolicy().hasHeightForWidth())
-        self.radioButton_4.setSizePolicy(sizePolicy1)
+        self.nav_indicator_2 = QRadioButton(self.horizontalWidget)
+        self.nav_indicator_2.setObjectName(u"nav_indicator_2")
+        sizePolicy1.setHeightForWidth(self.nav_indicator_2.sizePolicy().hasHeightForWidth())
+        self.nav_indicator_2.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.radioButton_4)
+        self.horizontalLayout.addWidget(self.nav_indicator_2)
 
-        self.radioButton_2 = QRadioButton(self.horizontalWidget)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-        sizePolicy1.setHeightForWidth(self.radioButton_2.sizePolicy().hasHeightForWidth())
-        self.radioButton_2.setSizePolicy(sizePolicy1)
+        self.nav_indicator_3 = QRadioButton(self.horizontalWidget)
+        self.nav_indicator_3.setObjectName(u"nav_indicator_3")
+        sizePolicy1.setHeightForWidth(self.nav_indicator_3.sizePolicy().hasHeightForWidth())
+        self.nav_indicator_3.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.radioButton_2)
+        self.horizontalLayout.addWidget(self.nav_indicator_3)
 
-        self.radioButton = QRadioButton(self.horizontalWidget)
-        self.radioButton.setObjectName(u"radioButton")
-        sizePolicy1.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
-        self.radioButton.setSizePolicy(sizePolicy1)
+        self.nav_indicator_4 = QRadioButton(self.horizontalWidget)
+        self.nav_indicator_4.setObjectName(u"nav_indicator_4")
+        sizePolicy1.setHeightForWidth(self.nav_indicator_4.sizePolicy().hasHeightForWidth())
+        self.nav_indicator_4.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.radioButton)
+        self.horizontalLayout.addWidget(self.nav_indicator_4)
 
 
         self.verticalLayout_2.addWidget(self.horizontalWidget, 0, Qt.AlignHCenter)
@@ -147,11 +147,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"User Agreement", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec ac odio tempor. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Tellus orci ac auctor augue mauris augue neque gravida in. Sit amet nisl purus in. Non pulvinar neque laoreet suspendisse interdum. Tempus quam pellentesque nec nam. Nunc faucibus a pellentesque sit. Dui vivamus arcu felis bibendum. Ac tincidunt vitae semper quis lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec ac odio tempor. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Tellus orci ac auctor augue mauris augue neque gravida in. Sit amet nisl purus in. Non pulvinar neque laoreet suspendisse interdum. Tempus quam p", None))
-        self.radioButton_3.setText("")
-        self.radioButton_4.setText("")
-        self.radioButton_2.setText("")
-        self.radioButton.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Terms and Conditions</span></p><p><br/></p><p><span style=\" font-weight:600;\">General Terms</span></p><p>By accessing and placing an order with My ENB, you confirm that you are in agreement with and bound by the terms of service contained in the Terms &amp; Conditions outlined below. These terms apply to the entire website and any email or other type of communication between you and My ENB</p><p>Under no circumstances shall My ENB team be liable for any direct, indirect, special, incidental or consequential damages, including. but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if My ENB team or an authorized representative has been advised of the possibility of such damages. If your use of materials from this site results in the need for servicing, repair or correction of equipment or data, you assume any costs thereof.</p><p>My ENB will not be responsible for any"
+                        " outcome that may occur during the course of usage of our resources. We reserve the rights to change prices and reserve the change prices and revise the resources usage policy in any moment.</p><p><br/></p><p><span style=\" font-weight:600;\">License</span></p><p>My ENB grants you a revocable, non-exclusive, non- transferable, limited license to download, install and use the app strictly in accordance with the terms of this Agreement. These Terms &amp; Conditions are a contract between you and My ENB (we.&quot; *our,&quot; or</p><p>&quot;us&quot;) grants you a revocable, non-exclusive, non- transferable, limited license to download, install and use the app strictly in accordance with terms of this Agreement.</p><p><br/></p><p><span style=\" font-weight:600;\">Definitions and key terms</span></p><p>\u2022 Cookie: small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or log"
+                        "in information.</p><p>\u2022 Company: when this policy mentions &quot;Company.&quot; &quot;we,&quot; *us,&quot; or &quot;our,&quot; it refers to My ENB that is responsible for your information under this Privacy Policy.</p><p>\u2022 Country: where My ENB or the owners/founders of My ENB are based, in this case is Canada.</p><p>\u2022 Customer: refers to the company, organization or person that signs up to use the My ENB Service to manage the relationships with your consumers or service users.</p><p>\u2022 Device: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit My ENB and use the services.</p><p>\u2022 IP address: Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet.</p><p>Restrictions</p><p>You agree not to, and you will not permit others"
+                        " to:</p><p>\u2022 License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the se make the platform available to any third party.</p><p>\u2022 Modify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the service.</p><p>\u2022 Remove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of or its affiliates, partners or licensors of others. </p><p><br/></p><p><span style=\" font-weight:600;\">Contact us: </span></p><p>Don\u2019t hesitate to contact us if u have any questions.</p><p>Via the link: github.com/dhir0hit/my_env/issues</p><p><br/></p></body></html>", None))
+        self.nav_indicator_1.setText("")
+        self.nav_indicator_2.setText("")
+        self.nav_indicator_3.setText("")
+        self.nav_indicator_4.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Accept", None))
     # retranslateUi
 
