@@ -37,6 +37,7 @@ def get_weather_data(url):
     # extract the wind
     result['wind'] = soup.find("span", attrs={"id": "wob_ws"}).text
 
+
     return result
 
 
