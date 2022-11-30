@@ -1,53 +1,43 @@
-from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (QMainWindow)
+from ui.PasswordManager.ui_passwordManager_list import Ui_accounts_list
 
-from ui.PasswordManager.ui_passwordManager_dashboard import Ui_password_manager_dashboard
+from PySide6.QtCore import (QCoreApplication, QMetaObject)
+from PySide6.QtWidgets import (QHBoxLayout, QLabel, QSizePolicy, QVBoxLayout, QWidget)
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
-    QVBoxLayout, QWidget)
-import image_rc
+from src.Account import Account
+from src.PasswordManager import PasswordManager
+
 
 class MainWindow(QMainWindow):
     def __init__(self, window):
         super(MainWindow, self).__init__()
-        print("[+] Opened Password Manager")
+        print("[+] Opened Password Manager List....")
 
-        self.upper_class = window
         self.Window = window.Window
 
-    def run(self, accounts_data, main_window):
+    def run(self, list_account):
         """
         Run the app
-        add elements in app
+        , Send favorite list for favorite account page
+        , Send total list for total accounts page
+        :param list_account: list of accounts class
+        :return:
         """
+        # creating instance of ui
+        self.account_list = Ui_accounts_list()
+        self.account_list.setupUi(self.Window.current_app_container)
+        # adding ui in app
+        self.Window.verticalLayout_7.addWidget(self.account_list.accounts_list)
 
-        # password manager dashboard container in UI
-        self.password_manager_dashboard = Ui_password_manager_dashboard()
-        self.password_manager_dashboard.setupUi(self.Window.current_app_container)
-
-        self.Window.verticalLayout_7.addWidget(self.password_manager_dashboard.password_manager_container)
-
-        # Add item in favorite container
-        self.password_manager_dashboard.label.setText("Total Account")
-        # self.password_manager_dashboard.FavoriteAccounts.setText()
-        # self.password_manager_dashboard.TotalAccounts.setText()
-        # self.upper_class.password_manager()s
-
-        self.password_manager_dashboard.pushButton_2.clicked.connect(lambda: main_window.password_manager_create(main_window))
-
-        for account in accounts_data.TotalAccounts:
-            self.password_manager_dashboard.FavoriteScrollContainer.addWidget(self.addAccount(account))
-
-
+        # Looping through list of account to add them one by one
+        for account in list_account:
+            self.account_list.account_list_container.addWidget(self.addAccount(account))
 
     def addAccount(self, account):
+        """
+        Method to add account in list
+        :param: takes account class as a parameter
+        """
         account_container = QWidget()
         if not account_container.objectName():
             account_container.setObjectName(u"Form")
@@ -91,7 +81,6 @@ class MainWindow(QMainWindow):
 
         verticalLayout.addWidget(label_2)
 
-
         horizontalLayout.addWidget(verticalWidget)
 
         QMetaObject.connectSlotsByName(account_container)
@@ -100,3 +89,4 @@ class MainWindow(QMainWindow):
         label_2.setText(QCoreApplication.translate("Form", account.Username(), None))
 
         return account_container
+

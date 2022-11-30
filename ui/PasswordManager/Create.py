@@ -2,6 +2,7 @@ from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (QMainWindow)
 
 from ui.PasswordManager.ui_passwordManager_create import Ui_password_manager_create
+from src.PasswordManager import PasswordManager
 from src.Account import Account
 
 class MainWindow(QMainWindow):
@@ -11,11 +12,12 @@ class MainWindow(QMainWindow):
 
         self.Window = window.Window
 
-    def run(self):
+    def run(self, account):
         """
         Run the app
         add elements in app
         """
+        self.password_manager_data = account
 
         self.account_create = Ui_password_manager_create()
         self.account_create.setupUi(self.Window.current_app_container)
@@ -32,6 +34,7 @@ class MainWindow(QMainWindow):
 
         # creating new account instance
         account = Account(_username, _password, _platform, _website)
+        self.password_manager_data.new_account(account)
         print(account.get_all())
 
         # Removing values from inputs

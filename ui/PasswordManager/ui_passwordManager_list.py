@@ -30,20 +30,19 @@ class Ui_accounts_list(object):
         self.accounts_list_scroll = QScrollArea(self.accounts_list)
         self.accounts_list_scroll.setObjectName(u"accounts_list_scroll")
         self.accounts_list_scroll.setWidgetResizable(True)
-        self.account_list_contaienr = QWidget()
-        self.account_list_contaienr.setObjectName(u"account_list_contaienr")
-        self.account_list_contaienr.setGeometry(QRect(0, 0, 753, 423))
-        self.verticalLayout_2 = QVBoxLayout(self.account_list_contaienr)
+        self.account_list_container = QWidget()
+        self.account_list_container.setObjectName(u"account_list_contaienr")
+        self.account_list_container.setGeometry(QRect(0, 0, 753, 423))
+        self.verticalLayout_2 = QVBoxLayout(self.account_list_container)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.trash = QLabel(self.account_list_contaienr)
+        self.trash = QLabel(self.account_list_container)
         self.trash.setObjectName(u"trash")
 
         self.verticalLayout_2.addWidget(self.trash)
 
-        self.accounts_list_scroll.setWidget(self.account_list_contaienr)
+        self.accounts_list_scroll.setWidget(self.account_list_container)
 
         self.verticalLayout.addWidget(self.accounts_list_scroll)
-
 
         self.retranslateUi(self.accounts_list)
 
