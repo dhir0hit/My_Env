@@ -1,5 +1,20 @@
 <RCC>
   <qresource prefix="resources">
+    <file>visibility_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>content_copy_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>cloud_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>smart_toy_.svg</file>
+    <file>music_note_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>lock_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>note_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>dashboard_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>edit_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>play_arrow_FILL1_wght400_GRAD0_opsz48(1).svg</file>
+    <file>settings_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>skip_next_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>skip_previous_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>smart_toy_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>partly_cloudy_day_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>subdirectory_arrow_left_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>done_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>arrow_forward_FILL0_wght400_GRAD0_opsz48.svg</file>

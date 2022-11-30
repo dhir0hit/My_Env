@@ -3,7 +3,7 @@ import sys
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QApplication
 
-from ui import (Landing, ChatBot)
+from ui import (MainWindow, Landing)
 
 
 class MyEnv:
@@ -14,9 +14,13 @@ class MyEnv:
 
     @Slot()
     def open_app(self):
-        print("Helo")
-        self.MainWindow = ChatBot.MainWindow()
+        print("[+] Opening App")
+        self.MainWindow = MainWindow()
         self.show_window()
+
+    # @Slot()
+    # def show_chatbot(self):
+    #     print("[+] Opening Chatbot")
 
     def show_window(self):
         self.window = self.MainWindow

@@ -13,64 +13,11 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="current_app_container">
    <property name="styleSheet">
     <string notr="true">background-color: rgb(51, 53, 51);</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QWidget" name="top_bar" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="leftMargin">
-        <number>20</number>
-       </property>
-       <property name="topMargin">
-        <number>5</number>
-       </property>
-       <property name="rightMargin">
-        <number>20</number>
-       </property>
-       <property name="bottomMargin">
-        <number>5</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="app_name">
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(245, 203, 92);</string>
-         </property>
-         <property name="text">
-          <string>My Env</string>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignRight">
-        <widget class="QLabel" name="current_app">
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>ChatBot</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item>
      <widget class="QWidget" name="main_body" native="true">
       <property name="styleSheet">
@@ -95,7 +42,7 @@
        <item>
         <widget class="QScrollArea" name="scrollArea">
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border: &quot;none&quot;;</string>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -108,8 +55,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>772</width>
-            <height>482</height>
+            <width>776</width>
+            <height>532</height>
            </rect>
           </property>
           <property name="layoutDirection">
@@ -136,43 +83,7 @@
            </property>
            <item alignment="Qt::AlignBottom">
             <widget class="QWidget" name="chat" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item alignment="Qt::AlignLeft">
-               <widget class="QLabel" name="chat_bot_1">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(51, 53, 51);</string>
-                </property>
-                <property name="text">
-                 <string>Hello __User__,
-Ask me anything
-eg. Create a note, Create a Reminder,
-Play Music, Or Help to get all command.</string>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-                <property name="margin">
-                 <number>6</number>
-                </property>
-               </widget>
-              </item>
-              <item alignment="Qt::AlignRight">
-               <widget class="QLabel" name="user_1">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(51, 53, 51);</string>
-                </property>
-                <property name="text">
-                 <string>Create a note for me.</string>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-                <property name="margin">
-                 <number>6</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="verticalLayout_4"/>
             </widget>
            </item>
           </layout>
@@ -181,8 +92,14 @@ Play Music, Or Help to get all command.</string>
        </item>
        <item>
         <widget class="QWidget" name="input_bar" native="true">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(51, 53, 51);</string>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item>
@@ -207,7 +124,8 @@ Play Music, Or Help to get all command.</string>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(245, 203, 92);
-background-color: rgb(51, 53, 51);</string>
+background-color: rgb(51, 53, 51);
+border: &quot;none&quot;;</string>
             </property>
             <property name="inputMask">
              <string/>
@@ -230,7 +148,9 @@ background-color: rgb(51, 53, 51);</string>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(245, 203, 92);
-background-color: rgb(51, 53, 51);</string>
+background-color: rgb(51, 53, 51);
+padding: 5;
+border: none;</string>
             </property>
             <property name="text">
              <string/>
