@@ -19,15 +19,16 @@ from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
 class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(903, 560)
-        Form.setStyleSheet(u"\n"
+    def setupUi(self, parent):
+        self.weather_container = QWidget(parent)
+        if not self.weather_container.objectName():
+            self.weather_container.setObjectName(u"Form")
+        self.weather_container.resize(903, 560)
+        self.weather_container.setStyleSheet(u"\n"
 "background-color: rgb(0, 0, 0);")
-        self.verticalLayout_2 = QVBoxLayout(Form)
+        self.verticalLayout_2 = QVBoxLayout(self.weather_container)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalWidget_4 = QWidget(Form)
+        self.verticalWidget_4 = QWidget(self.weather_container)
         self.verticalWidget_4.setObjectName(u"verticalWidget_4")
         self.verticalLayout_5 = QVBoxLayout(self.verticalWidget_4)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -58,7 +59,7 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.verticalWidget_4)
 
-        self.verticalWidget_3 = QWidget(Form)
+        self.verticalWidget_3 = QWidget(self.weather_container)
         self.verticalWidget_3.setObjectName(u"verticalWidget_3")
         self.verticalWidget_3.setStyleSheet(u"border-radius:25%;\n"
 "background-color: rgb(36, 36, 35);")
@@ -77,7 +78,7 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.verticalWidget_3)
 
-        self.verticalWidget_6 = QWidget(Form)
+        self.verticalWidget_6 = QWidget(self.weather_container)
         self.verticalWidget_6.setObjectName(u"verticalWidget_6")
         self.verticalWidget_6.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.verticalWidget_6)
@@ -178,9 +179,9 @@ class Ui_Form(object):
         self.verticalLayout_2.addWidget(self.verticalWidget_6)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(self.weather_container)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(self.weather_container)
     # setupUi
 
     def retranslateUi(self, Form):

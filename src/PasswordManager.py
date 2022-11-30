@@ -6,6 +6,8 @@ class PasswordManager:
         self.TotalAccounts = 69
         self.FavoriteAccounts = 0
         self.Unlocked = False
+        self.FavoriteAccounts = []
+        self.AllAccounts = []
 
     def _load_data_(self):
         # open database and load data
