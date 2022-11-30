@@ -8,7 +8,6 @@ import random
 class Bot:
     def __init__(self, user=None):
         self.__fetch_data__()
-        print(user)
 
     def command(self, _command):
         """
@@ -30,7 +29,7 @@ class Bot:
         _music_player_check = 0
         _password_manager_check = 0
 
-        # looping through every commands given
+        # looping through every command given
         for element in _command:
             priority = 10
             normal = 1
