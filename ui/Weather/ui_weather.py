@@ -196,7 +196,3 @@ class Ui_Form(object):
         self.label_9.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.label_10.setText(QCoreApplication.translate("Form", u"TextLabel", None))
     # retranslateUi
-
-Error: weather.ui: Warning: The name 'verticalWidget_4' (QWidget) is already in use, defaulting to 'verticalWidget_41'.
-
-while executing '/home/dhir0hit/.local/lib/python3.10/site-packages/PySide6/Qt/libexec/uic -g python weather.ui'
