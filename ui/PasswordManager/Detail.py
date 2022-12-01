@@ -1,6 +1,6 @@
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (QMainWindow)
-
+import pyperclip
 from ui.PasswordManager.ui_passwordManager_details import Ui_password_manager_detail
 
 
@@ -35,6 +35,10 @@ class MainWindow(QMainWindow):
         self.password_manager_detail.Website.setText(account.Website())
 
         self.password_manager_detail.ShowPassword.clicked.connect(lambda: self.display_password())
+        self.password_manager_detail.PasswordCopyButton.clicked.connect(
+            lambda: pyperclip.copy(account.Password()))
+        self.password_manager_detail.pushButton.clicked.connect(
+            lambda: pyperclip.copy(account.Username()))
 
     def display_password(self):
         """

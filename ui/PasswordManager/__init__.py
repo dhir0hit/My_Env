@@ -11,7 +11,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
                            QImage, QKeySequence, QLinearGradient, QPainter,
                            QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
-                               QVBoxLayout, QWidget)
+                               QVBoxLayout, QWidget, QPushButton)
 import image_rc
 
 
@@ -46,9 +46,9 @@ class MainWindow(QMainWindow):
 
         print(f"Total {accounts_data.TotalAccounts} ")
         for account in accounts_data.AllAccounts:
-            self.password_manager_dashboard.FavoriteScrollContainer.addWidget(self.addAccount(account))
+            self.password_manager_dashboard.FavoriteScrollContainer.addWidget(self.addAccount(account, main_window))
 
-    def addAccount(self, account):
+    def addAccount(self, account, main_window):
         """
         adding account in list
         by getting account param
@@ -58,6 +58,8 @@ class MainWindow(QMainWindow):
         account_container = QWidget()
         if not account_container.objectName():
             account_container.setObjectName(u"Form" + str(account.Id()))
+        font = QFont()
+        font.setPointSize(14)
         account_container.resize(607, 120)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -70,7 +72,7 @@ class MainWindow(QMainWindow):
         horizontalLayout.setObjectName(u"horizontalLayout" + str(account.Id()))
         horizontalLayout.setContentsMargins(10, 10, 10, 10)
         label = QLabel(account_container)
-        label.setObjectName(u"label" + str(account.Id()))
+
         sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
@@ -90,6 +92,8 @@ class MainWindow(QMainWindow):
         verticalLayout.setObjectName(u"verticalLayout" + str(account.Id()))
         label_3 = QLabel(verticalWidget)
         label_3.setObjectName(u"label_3" + str(account.Id()))
+        label_3.setFont(font)
+        label_3.setObjectName(u"label" + str(account.Id()))
 
         verticalLayout.addWidget(label_3)
 
@@ -97,6 +101,19 @@ class MainWindow(QMainWindow):
         label_2.setObjectName(u"label_2" + str(account.Id()))
 
         verticalLayout.addWidget(label_2)
+
+        open_button = QPushButton(verticalWidget)
+        open_button.setObjectName(u"open_button")
+        open_button.setText(u"Open")
+        open_button.setFont(font)
+        open_button.setStyleSheet(u"border: none;\n"
+                                  u"padding: 3;\n"
+                                  u"background-color: rgb(245, 203, 92);\n"
+                                  u"color: rgb(51, 53, 51);")
+        open_button.clicked.connect(lambda:
+                                    main_window.password_manager_detail(account))
+
+        verticalLayout.addWidget(open_button)
 
 
         horizontalLayout.addWidget(verticalWidget)

@@ -13,7 +13,9 @@ class PasswordManager:
         # as Boolean
         self.Unlocked = False
         # All accounts list
-        self.AllAccounts = []
+        self.AllAccounts = [
+            Account("username", "password", "platform", "website")
+        ]
         # Loading data from database
         self._load_data_()
 
