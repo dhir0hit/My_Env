@@ -1,7 +1,7 @@
 from src.Notes import Notes
 import pymongo
 
-# client = pymongo.MongoClient("mongodb+srv://admin:admin123@cluster0.tgneiwg.mongodb.net/?retryWrites=true&w=majority")
+#client = pymongo.MongoClient("mongodb+srv://admin:admin123@cluster0.tgneiwg.mongodb.net/?retryWrites=true&w=majority")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 notesCollection = client["myenv"]["notes"]
 

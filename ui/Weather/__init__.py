@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import QMainWindow
 from bs4 import BeautifulSoup as bs
 import requests
 
-from ui.Weather.ui_weather import Ui_Weather
+from ui.Weather.ui_weather import Ui_WeatherApp
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -50,24 +50,22 @@ class MainWindow(QMainWindow):
         print("Humidity:", data["humidity"])
         print("Wind:", data["wind"])
 
-        self.weatherapp = Ui_Weather()
+        self.weatherapp = Ui_WeatherApp()
         self.weatherapp.setupUi(self.Window.current_app_container)
-        self.Window.verticalLayout_7.addWidget(self.weatherapp.weather_container)
+        self.Window.verticalLayout_7.addWidget(self.weatherapp.weather_app_container)
 
-        self.weatherapp.city.setText
-        self.weatherapp.label_2.setText(data["wind"])
+        self.weatherapp.city.setText(data['region'])
+        self.weatherapp.temp.setText(data["temp_now"])
 
-        self.weatherapp.label_3.setText("Humidity percentage is :")
-        self.weatherapp.label_8.setText(data["humidity"])
+        self.weatherapp.humdpercentage.setText(data["humidity"])
 
-        self.weatherapp.label_9.setText("Precipitation percentage is :")
-        self.weatherapp.label_10.setText(data["precipitation"])
+        self.weatherapp.precppercentage.setText(data["precipitation"])
 
-        self.weatherapp.label_5.setText("Today's Day and Time is :"+ data["dayhour"])
-        self.weatherapp.label_4.setText("The Weather is : "+data["weather_now"])
+        self.weatherapp.date.setText( data["dayhour"])
+        self.weatherapp.description.setText("The Weather is : "+data["weather_now"])
 
-        self.weatherapp.label_7.setText( data["temp_now"])
-        self.weatherapp.label_6.setText(data["region"])
+        self.weatherapp.windspeed.setText( data["wind"])
+
 
 
 

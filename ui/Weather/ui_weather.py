@@ -18,17 +18,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(870, 681)
-        Form.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        self.verticalLayout = QVBoxLayout(Form)
+class Ui_WeatherApp(object):
+    def setupUi(self, parent):
+        self.weather_app_container = QWidget(parent)
+        if not self.weather_app_container.objectName():
+            self.weather_app_container.setObjectName(u"Form")
+        self.weather_app_container.resize(870, 681)
+        self.weather_app_container.setStyleSheet(u"background-color: rgb(51, 53, 51);")
+        self.verticalLayout = QVBoxLayout(self.weather_app_container)
         self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(25, 20, 25, 20)
-        self.Firstone = QWidget(Form)
+        self.Firstone = QWidget(self.weather_app_container)
         self.Firstone.setObjectName(u"Firstone")
         self.Firstone.setLayoutDirection(Qt.LeftToRight)
         self.Firstone.setStyleSheet(u"background-color: rgb(36, 36, 35);\n"
@@ -86,7 +87,7 @@ class Ui_Form(object):
 
         self.verticalLayout.addWidget(self.Firstone)
 
-        self.SeconDone = QWidget(Form)
+        self.SeconDone = QWidget(self.weather_app_container)
         self.SeconDone.setObjectName(u"SeconDone")
         self.SeconDone.setStyleSheet(u"background-color: rgb(51, 53, 51);")
         self.verticalLayout_2 = QVBoxLayout(self.SeconDone)
@@ -121,7 +122,7 @@ class Ui_Form(object):
 
         self.verticalLayout.addWidget(self.SeconDone)
 
-        self.thirdone = QWidget(Form)
+        self.thirdone = QWidget(self.weather_app_container)
         self.thirdone.setObjectName(u"thirdone")
         self.horizontalLayout = QHBoxLayout(self.thirdone)
         self.horizontalLayout.setSpacing(27)
@@ -227,9 +228,9 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.thirdone)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(self.weather_app_container)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(self.weather_app_container)
     # setupUi
 
     def retranslateUi(self, Form):
