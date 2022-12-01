@@ -1,11 +1,8 @@
-
-
 from src.Account import Account
 from ui.Dashboard import MainWindow as Dashboard
 from ui.ChatBot import MainWindow as ChatBot
 from ui.PasswordManager import MainWindow as PasswordManager
 from ui.PasswordManager.Detail import MainWindow as PasswordManagerDetail
-from ui.PasswordManager.List import MainWindow as PasswordManagerList
 from ui.PasswordManager.Create import MainWindow as PasswordManagerCreate
 
 from ui.ui_dashboard import Ui_MainWindow
@@ -13,8 +10,6 @@ from ui.ui_dashboard import Ui_MainWindow
 from PySide6.QtWidgets import (QMainWindow,
                                QWidget)
 from src.PasswordManager import PasswordManager as PasswordManagerData
-
-
 
 #
 # Main window
@@ -34,7 +29,8 @@ class MainWindow(QMainWindow):
         # navigation controls
         self.Window.nav_dashboard.clicked.connect(self.dashboard)
         self.Window.nav_chat_bot.clicked.connect(self.chat_bot)
-        self.Window.nav_pass_manager.clicked.connect(self.password_manager)
+        self.Window.nav_pass_manager.clicked.connect(self.password_manager_create)
+
 
     def dashboard(self):
         """
@@ -89,25 +85,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting password manager ui instance
         app = PasswordManager(self)
-        app.run(self.pass_manager, self)   # running Password Manager
-
-        # changing navigation list color
-        self._change_all_background_()
-        self.Window.nav_pass_manager.setStyleSheet("border: none; "
-                                                   "padding: 3; "
-                                                   "background-color: rgb(36, 36, 35);")
-
-    def password_manager_list(self):
-        """
-        password manager list
-        """
-        print("[+] Opening Password Manager Details...")
-        # calling remove old elements
-        # to remove any components in app
-        self._remove_old_elements_()
-        # getting password manager detail ui instance
-        app = PasswordManagerList(self)
-        app.run(self.pass_manager.TotalAccounts)
+        app.run()   # running Password Manager
 
         # changing navigation list color
         self._change_all_background_()
@@ -144,7 +122,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting password manager detail ui instance
         app = PasswordManagerCreate(self)
-        app.run(self.pass_manager)
+        app.run()
 
         # changing navigation list color
         self._change_all_background_()
