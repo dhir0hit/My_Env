@@ -31,7 +31,8 @@ class MainWindow(QMainWindow):
         self.Window.nav_dashboard.clicked.connect(self.dashboard)
         self.Window.nav_chat_bot.clicked.connect(self.chat_bot)
         self.Window.nav_pass_manager.clicked.connect(self.password_manager)
-        self.Window.nav_notes.click()
+        self.Window.nav_notes.clicked.connect(self.notes_app)
+        self.Window.nav_weather.clicked.connect(self.weather_app)
 
     def dashboard(self):
         """
@@ -106,7 +107,12 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting chatbot ui instance
         app = Weather(self)
-        app.run(self)   # running chatbot
+        app.run()   # running chatbot
+
+        self._change_all_background_()
+        self.Window.nav_weather.setStyleSheet("border: none; "
+                                            "padding: 3; "
+                                            "background-color: rgb(36, 36, 35);")
 
 
     def password_manager(self):

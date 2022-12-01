@@ -3,7 +3,6 @@ from typing import Type
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (QMainWindow)
 from ui.Notes.ui_landing import Ui_Form as NotesLanding
-import self as self
 
 
 def create_notes(noteTitle=None):
