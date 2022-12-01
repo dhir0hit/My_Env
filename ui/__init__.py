@@ -1,3 +1,5 @@
+
+
 from src.Account import Account
 from ui.Dashboard import MainWindow as Dashboard
 from ui.ChatBot import MainWindow as ChatBot
@@ -11,6 +13,7 @@ from ui.ui_dashboard import Ui_MainWindow
 from PySide6.QtWidgets import (QMainWindow,
                                QWidget)
 from src.PasswordManager import PasswordManager as PasswordManagerData
+
 
 
 #
