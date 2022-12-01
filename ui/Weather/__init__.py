@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         self.weatherapp.setupUi(self.Window.current_app_container)
         self.Window.verticalLayout_7.addWidget(self.weatherapp.weather_container)
 
-        self.weatherapp.label.setText("Wind speed is :")
+        self.weatherapp.city.setText
         self.weatherapp.label_2.setText(data["wind"])
 
         self.weatherapp.label_3.setText("Humidity percentage is :")
