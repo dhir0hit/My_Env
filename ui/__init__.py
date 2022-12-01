@@ -1,5 +1,3 @@
-from PySide2.QtMultimedia.QRadioData import Weather
-
 from src.Account import Account
 from ui.Dashboard import MainWindow as Dashboard
 from ui.ChatBot import MainWindow as ChatBot
@@ -77,22 +75,22 @@ class MainWindow(QMainWindow):
                                                "padding: 3; "
                                                "background-color: rgb(36, 36, 35);")
 
-        def notes_app(self):
-            """
-            chat_bot method
-            loads up dashboard ui and connect buttons within
-            """
+    def notes_app(self):
+        """
+        chat_bot method
+        loads up dashboard ui and connect buttons within
+        """
 
-            print("[+] Opening Notes...")
-            # calling remove old elements
-            # to remove any components in app
-            self._remove_old_elements_()
-            # getting chatbot ui instance
-            app = NotesManager(self)
-            app.run(self)  # running chatbot
+        print("[+] Opening Notes...")
+        # calling remove old elements
+        # to remove any components in app
+        self._remove_old_elements_()
+        # getting chatbot ui instance
+        app = NotesManager(self)
+        app.run(self)  # running chatbot
 
-            self._change_all_background_()
-            self.Window.nav_notes.setStyleSheet("border: none; "
+        self._change_all_background_()
+        self.Window.nav_notes.setStyleSheet("border: none; "
                                                    "padding: 3; "
                                                    "background-color: rgb(36, 36, 35);")
 
