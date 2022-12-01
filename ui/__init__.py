@@ -29,8 +29,7 @@ class MainWindow(QMainWindow):
         # navigation controls
         self.Window.nav_dashboard.clicked.connect(self.dashboard)
         self.Window.nav_chat_bot.clicked.connect(self.chat_bot)
-        self.Window.nav_pass_manager.clicked.connect(self.password_manager_create)
-
+        self.Window.nav_pass_manager.clicked.connect(self.password_manager)
 
     def dashboard(self):
         """
@@ -85,7 +84,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting password manager ui instance
         app = PasswordManager(self)
-        app.run()   # running Password Manager
+        app.run(self.pass_manager, self)   # running Password Manager
 
         # changing navigation list color
         self._change_all_background_()
@@ -122,7 +121,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting password manager detail ui instance
         app = PasswordManagerCreate(self)
-        app.run()
+        app.run(self)
 
         # changing navigation list color
         self._change_all_background_()
