@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
-class Ui_Form(object):
+class Ui_Weather(object):
     def setupUi(self, parent):
         self.weather_container = QWidget(parent)
         if not self.weather_container.objectName():
