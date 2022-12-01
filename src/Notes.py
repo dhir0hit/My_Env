@@ -16,5 +16,9 @@ class Notes:
     def Heading(self):
         return self._heading_
 
-    def body(self, body):
+    def set_body(self, body):
         self._body_ = body
+
+    def body(self):
+        return self._body_
+
