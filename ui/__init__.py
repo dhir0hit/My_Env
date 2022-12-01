@@ -91,8 +91,7 @@ class MainWindow(QMainWindow):
             app = NotesManager(self)
             app.run(self)  # running chatbot
 
-            self._change_all_b
-            ackground_()
+            self._change_all_background_()
             self.Window.nav_notes.setStyleSheet("border: none; "
                                                    "padding: 3; "
                                                    "background-color: rgb(36, 36, 35);")
