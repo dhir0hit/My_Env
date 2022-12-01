@@ -5,7 +5,7 @@ from ui.PasswordManager import MainWindow as PasswordManager
 from ui.PasswordManager.Detail import MainWindow as PasswordManagerDetail
 from ui.PasswordManager.Create import MainWindow as PasswordManagerCreate
 from ui.Notes import MainWindow as NotesManager
-
+from ui.Weather import MainWindow as Weather
 from ui.ui_dashboard import Ui_MainWindow
 
 from PySide6.QtWidgets import (QMainWindow,
