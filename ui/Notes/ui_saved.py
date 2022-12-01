@@ -19,18 +19,19 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(737, 640)
-        Form.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        self.verticalLayout = QVBoxLayout(Form)
+    def setupUi(self, Parent):
+        self.Form = QWidget(Parent)
+        if not self.Form.objectName():
+            self.Form.setObjectName(u"Form")
+        self.Form.resize(737, 640)
+        self.Form.setStyleSheet(u"background-color: rgb(51, 53, 51);")
+        self.verticalLayout = QVBoxLayout( self.Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setSpacing(7)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(-1, 15, -1, 15)
-        self.horizontalFrame_4 = QFrame(Form)
+        self.horizontalFrame_4 = QFrame( self.Form)
         self.horizontalFrame_4.setObjectName(u"horizontalFrame_4")
         self.horizontalLayout_5 = QHBoxLayout(self.horizontalFrame_4)
         self.horizontalLayout_5.setSpacing(22)
@@ -63,7 +64,7 @@ class Ui_Form(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
-        self.horizontalWidget = QWidget(Form)
+        self.horizontalWidget = QWidget( self.Form)
         self.horizontalWidget.setObjectName(u"horizontalWidget")
         self.horizontalLayout = QHBoxLayout(self.horizontalWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -103,9 +104,9 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.horizontalWidget)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi( self.Form)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName( self.Form)
     # setupUi
 
     def retranslateUi(self, Form):

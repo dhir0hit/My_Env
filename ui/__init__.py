@@ -15,7 +15,7 @@ from src.PasswordManager import PasswordManager as PasswordManagerData
 
 #
 # Main window
-# opens dashboard onload
+# opens dashboard unload
 #
 class MainWindow(QMainWindow):
     def __init__(self):
