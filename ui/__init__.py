@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting chatbot ui instance
         app = ChatBot(self)
-        app.run()   # running chatbot
+        app.run(self)   # running chatbot
 
         # changing navigation list color
         self._change_all_background_()

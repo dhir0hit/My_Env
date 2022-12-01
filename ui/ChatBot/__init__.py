@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
 
         self.Window = window.Window
 
-    def run(self):
+    def run(self, ui):
         """
         runs the app add chat container in app
         """
