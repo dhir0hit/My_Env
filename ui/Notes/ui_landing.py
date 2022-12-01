@@ -19,14 +19,15 @@ from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
 class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(772, 672)
-        Form.setStyleSheet(u"background-color: rgb(51, 53, 51);")
-        self.verticalLayout_2 = QVBoxLayout(Form)
+    def setupUi(self, Parent):
+        self.Form = QWidget(Parent)
+        if not self.Form.objectName():
+            self.Form.setObjectName(u"self.Form")
+        self.Form.resize(772, 672)
+        self.Form.setStyleSheet(u"background-color: rgb(51, 53, 51);")
+        self.verticalLayout_2 = QVBoxLayout(self.Form)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalFrame = QFrame(Form)
+        self.verticalFrame = QFrame(self.Form)
         self.verticalFrame.setObjectName(u"verticalFrame")
         self.verticalLayout = QVBoxLayout(self.verticalFrame)
         self.verticalLayout.setSpacing(7)
@@ -70,13 +71,13 @@ class Ui_Form(object):
         self.verticalLayout_2.addWidget(self.verticalFrame)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(self.Form)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(self.Form)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+    def retranslateUi(self,Form):
+        self.Form.setWindowTitle(QCoreApplication.translate("self.Form", u"Form", None))
         self.label_1.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.label_2.setText("")
     # retranslateUi
