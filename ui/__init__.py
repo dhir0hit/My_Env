@@ -30,6 +30,7 @@ class MainWindow(QMainWindow):
         self.Window.nav_dashboard.clicked.connect(self.dashboard)
         self.Window.nav_chat_bot.clicked.connect(self.chat_bot)
         self.Window.nav_pass_manager.clicked.connect(self.password_manager)
+        self.Window.nav_notes.click()
 
     def dashboard(self):
         """

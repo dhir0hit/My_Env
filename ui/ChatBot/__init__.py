@@ -37,9 +37,9 @@ class MainWindow(QMainWindow):
         self.chat_bot_container.send.clicked.connect(lambda: self.new_user_message)
         self.chat_bot_container.send.clicked.connect(self.new_user_message)
         # self.chat_bot_container.lineEdit.returnPressed.connect(lambda: self.new_user_message)
-        self.chat_bot_container.lineEdit.returnPressed.connect(self.new_user_message)
+        self.chat_bot_container.lineEdit.returnPressed.connect(self.new_user_message(ui))
 
-    def new_user_message(self):
+    def new_user_message(self, ui):
         """
         called upon when user enter new message
         """
@@ -52,7 +52,7 @@ class MainWindow(QMainWindow):
 
         # asking bot to reply user question
         # catching bot reply in variable
-        bot_reply = self.chatbot.command(user_question)
+        bot_reply = self.chatbot.command(user_question, ui)
         # showing bot message
         self.bot_message(bot_reply)
 

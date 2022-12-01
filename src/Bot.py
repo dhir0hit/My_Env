@@ -9,16 +9,16 @@ class Bot:
     def __init__(self, user=None):
         self.__fetch_data__()
 
-    def command(self, _command):
+    def command(self, _command, ui):
         """
         getting user command to check right answer
         :param _command: user question
         :return: bot answer
         """
         _command = _command.lower().split()
-        return random.choice(self.answers[self.__check_command__(_command)])
+        return random.choice(self.answers[self.__check_command__(_command, ui)])
 
-    def __check_command__(self, _command):
+    def __check_command__(self, _command, ui):
         """
         checking if command meet what bot can do
         returning dict of match between commands
@@ -37,12 +37,16 @@ class Bot:
             # high priority
             if element in ['note', 'notes']:
                 _notes_check += priority
+                ui.Window.nav_notes.click()
             if element in ['reminder', 'remind']:
                 _reminder_check += priority
+                ui.Window.nav_notes.click()
             if element in ['play', 'music', 'sing']:
                 _music_player_check += priority
+
             if element in ['password', 'account']:
                 _password_manager_check += priority
+                ui.password_manager_create(ui)
 
             # less priority
             if element in self._greeting:
