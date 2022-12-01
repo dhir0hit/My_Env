@@ -1,10 +1,13 @@
+from PySide2.QtMultimedia.QRadioData import Weather
+
 from src.Account import Account
 from ui.Dashboard import MainWindow as Dashboard
 from ui.ChatBot import MainWindow as ChatBot
 from ui.PasswordManager import MainWindow as PasswordManager
 from ui.PasswordManager.Detail import MainWindow as PasswordManagerDetail
 from ui.PasswordManager.Create import MainWindow as PasswordManagerCreate
-from ui.Weather.ui_weather import Ui_WeatherApp as WeatherApp
+from ui.Notes import MainWindow as NotesManager
+
 from ui.ui_dashboard import Ui_MainWindow
 
 from PySide6.QtWidgets import (QMainWindow,
@@ -74,22 +77,39 @@ class MainWindow(QMainWindow):
                                                "padding: 3; "
                                                "background-color: rgb(36, 36, 35);")
 
-    def weather_app(self):
+        def notes_app(self):
+            """
+            chat_bot method
+            loads up dashboard ui and connect buttons within
+            """
 
-
-            print("[+] Opening Weather...")
+            print("[+] Opening Notes...")
             # calling remove old elements
             # to remove any components in app
             self._remove_old_elements_()
             # getting chatbot ui instance
-            app = WeatherApp(self)
+            app = NotesManager(self)
             app.run(self)  # running chatbot
 
-            # changing navigation list color
-            self._change_all_background_()
-            self.Window.nav_chat_bot.setStyleSheet("border: none; "
+            self._change_all_b
+            ackground_()
+            self.Window.nav_notes.setStyleSheet("border: none; "
                                                    "padding: 3; "
                                                    "background-color: rgb(36, 36, 35);")
+
+    def weather_app(self):
+        """
+        chat_bot method
+        loads up dashboard ui and connect buttons within
+        """
+
+        print("[+] Opening Weather...")
+        # calling remove old elements
+        # to remove any components in app
+        self._remove_old_elements_()
+        # getting chatbot ui instance
+        app = Weather(self)
+        app.run(self)   # running chatbot
 
 
     def password_manager(self):
