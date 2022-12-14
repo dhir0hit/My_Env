@@ -163,7 +163,7 @@ class MainWindow(QMainWindow):
         self._remove_old_elements_()
         # getting password manager detail ui instance
         app = PasswordManagerCreate(self)
-        app.run(self)
+        app.run(self )
 
         # changing navigation list color
         self._change_all_background_()

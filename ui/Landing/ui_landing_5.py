@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(811, 611)
-        MainWindow.setStyleSheet(u"background-color: rgb(36, 36, 35);")
+        MainWindow.setStyleSheet(u"background-color: rgb(36, 36, 35);color:#fff;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)

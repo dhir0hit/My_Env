@@ -1,5 +1,6 @@
 from src.Notes import Notes
 import pymongo
+import uuid
 
 #client = pymongo.MongoClient("mongodb+srv://admin:admin123@cluster0.tgneiwg.mongodb.net/?retryWrites=true&w=majority")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -15,7 +16,7 @@ class NotesManager:
     def _load_data_(self):
         # open database and load data
         for x in notesCollection.find():
-            note = Notes(x['heading'], x['body'])
+            note = Notes(x['heading'], x['body'], x['_id'])
             self.AllNotes.append(note)
         pass
 
@@ -24,7 +25,7 @@ class NotesManager:
         creates a new Notes in database
         :param account: takes notes class as input
         """
-        note = {"heading" : notes.Heading(), "body" : notes.body()}
+        note = {"heading" : notes.Heading(), "body" : notes.body(), "_id" : str(notes.Id())}
         notesCollection.insert_one(note)
         self.AllNotes.append(note)
         print(self.AllNotes)

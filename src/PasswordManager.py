@@ -1,5 +1,6 @@
 from src.Account import Account
 import pymongo
+import uuid
 
 #client = pymongo.MongoClient("mongodb+srv://admin:admin123@cluster0.tgneiwg.mongodb.net/?retryWrites=true&w=majority")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -44,7 +45,8 @@ class PasswordManager:
         creates a new account in database
         :param account: takes account class as input
         """
-        acc = {"user_name" : account.Username(), "password" : account.Password(), "platform" : account.Platform(), "website" : account.Website(), "_id" : account.Id()}
+        acc = {"user_name" : account.Username(), "password" : account.Password(), "platform" : account.Platform(), "website" : account.Website(), "_id" : str(account.Id())}
+        print(acc)
         managerCollection.insert_one(acc)
 
         self.AllAccounts.append(acc)

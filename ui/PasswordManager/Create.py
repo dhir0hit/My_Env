@@ -34,7 +34,8 @@ class MainWindow(QMainWindow):
 
         # creating new account instance
         account = Account(_username, _password, _platform, _website)
-        self.password_manager_data.new_account(account)
+
+        self.password_manager_data.pass_manager.new_account(account)
         print(account.get_all())
 
         # Removing values from inputs
